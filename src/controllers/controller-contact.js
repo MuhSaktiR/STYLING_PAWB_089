@@ -13,24 +13,22 @@ module.exports ={
             if (err) throw err;
             connection.query('SELECT * FROM contacts;', function (error, results) {
                 if (error) throw error;
-
-                 // Log to debug
                 console.log('Results: ', results);
                 
                 // Check if results contains any data
                 if (results.length > 0) {
                     res.render('contact', {
                         url: 'http://localhost:3000/',
-                        contacts: results, // Pass the contacts data to the view
-                        showNavbar: true, // Tambahkan ini untuk mendefinisikan showNavbar
-                        currentPage: 'contact' // Tambahkan ini untuk menandai halaman yang aktif
+                        contacts: results, 
+                        showNavbar: true, 
+                        currentPage: 'contact' 
                     });
                 } else {
                     res.render('contact', {
                         url: 'http://localhost:3000/',
-                        contacts: [], // Pass an empty array if no data
-                        showNavbar: true, // Tambahkan ini untuk mendefinisikan showNavbar
-                        currentPage: 'contact' // Tambahkan ini untuk menandai halaman yang aktif
+                        contacts: [],
+                        showNavbar: true, 
+                        currentPage: 'contact' 
                     });
                 }
             });

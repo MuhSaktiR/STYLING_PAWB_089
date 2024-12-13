@@ -1,4 +1,3 @@
-// Impor library
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
@@ -7,7 +6,6 @@ const flash = require("req-flash");
 
 const app = express();
 
-// Konfigurasi session
 app.use(
   session({
     resave: false,
@@ -21,12 +19,10 @@ app.use(
   })
 );
 
-// Gunakan body-parser dan flash
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(flash());
 
-// Middleware untuk cache
 app.use(function (req, res, next) {
   res.setHeader(
     "Cache-Control",
@@ -36,14 +32,11 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Pengaturan folder views dan template engine
 app.set("views", path.join(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
-// Middleware untuk melayani file statis
 app.use('/public', express.static(path.join(__dirname, 'src', 'public')));
 
-// Gunakan routes
 const loginRoutes = require("./src/routes/router-login");
 const registerRoutes = require("./src/routes/router-register");
 const appRoutes = require("./src/routes/router-app");
@@ -59,14 +52,13 @@ app.use("/", appRoutes);
 app.get('/', (req, res) => {
     if (req.session.loggedin) {
         res.render('home', {
-            username: req.session.username  // Pastikan username tersedia
+            username: req.session.username
         });
     } else {
         res.redirect('/login');
     }
 });
 
-// Jalankan server
 app.listen(3000, () => {
   console.log(`Server running at http://localhost:3000`);
 });

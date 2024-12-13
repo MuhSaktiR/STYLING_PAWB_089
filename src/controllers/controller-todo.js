@@ -16,16 +16,16 @@ module.exports = {
                 if (results.length > 0) {
                     res.render('todo', {
                         url: 'http://localhost:3000/',
-                        todos: results, // Pass the todo data to the view
-                        showNavbar: true, // Tambahkan ini untuk mendefinisikan showNavbar
-                        currentPage: 'todo' // Tambahkan ini untuk menandai halaman yang aktif
+                        todos: results, 
+                        showNavbar: true, 
+                        currentPage: 'todo' 
                     });
                 } else {
                     res.render('todo', {
                         url: 'http://localhost:3000/',
-                        todos: [], // Pass an empty array if no data
-                        showNavbar: true, // Tambahkan ini untuk mendefinisikan showNavbar
-                        currentPage: 'todo' // Tambahkan ini untuk menandai halaman yang aktif
+                        todos: [], 
+                        showNavbar: true, 
+                        currentPage: 'todo' 
                     });
                 }
             });

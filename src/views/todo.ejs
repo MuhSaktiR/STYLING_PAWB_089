@@ -77,11 +77,11 @@
                                 <div class="modal-body">
                                     <form action="<%= url %>todo/save" method="POST">
                                         <div class="mb-3">
-                                            <label for="title" class="form-label">Title</label>
+                                            <label for="title" class="form-label">Judul</label>
                                             <input type="text" class="form-control" id="title" name="title" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="description" class="form-label">Description</label>
+                                            <label for="description" class="form-label">Deskripsi</label>
                                             <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -105,11 +105,11 @@
                                     <div class="modal-body">
                                         <form action="<%= url %>todo/update/<%= todo.id %>" method="POST">
                                             <div class="mb-3">
-                                                <label for="editTitle<%= todo.id %>" class="form-label">Title</label>
+                                                <label for="editTitle<%= todo.id %>" class="form-label">Judul</label>
                                                 <input type="text" class="form-control" id="editTitle<%= todo.id %>" name="title" value="<%= todo.judul %>" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="editDescription<%= todo.id %>" class="form-label">Description</label>
+                                                <label for="editDescription<%= todo.id %>" class="form-label">Deskripsi</label>
                                                 <textarea class="form-control" id="editDescription<%= todo.id %>" name="description" rows="4" required><%= todo.deskripsi %></textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Update</button>
